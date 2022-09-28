@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-
+import './App.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// http://www.omdbapi.com/?i=tt3896198&apikey=b9d43a5f - api
+//https://api.themoviedb.org/3/movie/550?api_key=45c19e5ad1a4792ab884744bb269265b - tmdb api key
+//https://api.themoviedb.org/3/movie/top_rated?api_key=45c19e5ad1a4792ab884744bb269265b -> toprated
