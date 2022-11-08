@@ -85,7 +85,8 @@ box-icon[name='search']{
 }
 
 .sidebar{
-    width: 150px;
+    /* width: 150px; */
+    width: 10%;
     height: auto;
     position: fixed;
     top: 100px;
@@ -123,7 +124,7 @@ box-icon[name='search']{
     padding: 0 20px;
     position: absolute;
     left:150px;
-    width: 1170px;
+    width: 85%;
 }
 
 .right-heading{
@@ -136,7 +137,6 @@ box-icon[name='search']{
 
 .movieList{
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
 }
 
@@ -173,22 +173,12 @@ box-icon[name='search']{
     height: 400px;
     width: 270px;
     padding: 0;
-    margin: auto;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.requestedMovieList > div{
-    height: 400px;
-    width: 270px;
-    padding: 0;
-    margin: auto;
-    align-items: center;
     margin: 0 5px 20px;
+    align-items: center;
+    
 }
 
-.movieList img,
-.requestedMovieList img{
+.movieList img{
     width: 270px;
     height: 350px;
 }
@@ -259,6 +249,22 @@ box-icon[name='star']{
     margin-right: 2px;
 }
 
+.alert{
+    width: 100%;
+    background-color: yellow;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alert p{
+    color: white;
+}
+
+.alert box-icon[name='x']{
+    color: #fff;
+}
 
 
   

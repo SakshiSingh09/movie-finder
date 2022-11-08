@@ -13,13 +13,13 @@ export default function Movie(){
                 const url = `https://api.themoviedb.org/3/discover/movie?api_key=45c19e5ad1a4792ab884744bb269265b&with_genres=${params.id}`;
                 const responsedata = await fetch(url).then(response => response.json());
                 setGenreMovies(responsedata.results);
-            }catch(error){
+            }catch(e){
                 setError(true);
             }
           }
           
         getGenreMovies();        
-        document.title = `${params.name} movies`;
+        document.title = `${setGenreName(params.name)} movies`;
     },[params.id, params.name])
 
     function getReleaseYear(date){
@@ -27,16 +27,19 @@ export default function Movie(){
         let year = day[0];
         return year;
     }
+    function setGenreName(name){
+        return name[0].toUpperCase() + name.substring(1, name.length);
+    }
     
     if(error){
         return(
             <Error />
         )
     }
-    if (genreMovies.length !== 0){
+    if(typeof genreMovies !== 'undefined' && genreMovies.length !== 0){
         return(
             <div>
-                <h1 className="right-heading">Documentary Movies</h1>           
+                <h1 className="right-heading">{setGenreName(params.name)} Movies</h1>           
                 <div className="movieList">
                 {genreMovies.map(movie => {
                     return (

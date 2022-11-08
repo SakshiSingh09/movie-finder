@@ -21,7 +21,7 @@ export default function Home(props){
                         <div className="movieContent" key={movie.id}>
                         <div className="movieCard-top-section">
                             <img src={"https://image.tmdb.org/t/p/original"+movie.poster_path} alt="movie"></img>
-                            <p className="movieOverview">{movie.overview}</p>
+                            <p className="movieOverview">{(movie.overview).length>500?(movie.overview).substring(0,550)+'...':movie.overview}</p>
                            </div>
                            <div className="movieCard-bottom-section">
                            <h4>{(movie.title).length>30?(movie.title).substring(0,30)+" ...":movie.title}</h4>
@@ -47,7 +47,7 @@ export default function Home(props){
                         <div className="movieContent" key={movie.id}>
                         <div className="movieCard-top-section">
                             <img src={"https://image.tmdb.org/t/p/original"+movie.poster_path} alt="movie"></img>
-                            <p className="movieOverview">{movie.overview}</p>
+                            <p className="movieOverview">{(movie.overview).length>550?(movie.overview).substring(0,550)+'...':movie.overview}</p>
                            </div>
                            <div className="movieCard-bottom-section">
                            <h4>{(movie.title).length>30?(movie.title).substring(0,30)+" ...":movie.title}</h4>

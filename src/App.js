@@ -15,11 +15,10 @@ function App() {
   const [isShowingMovie, setIsShowingMovie] = useState(false);
   const navigate = useNavigate();
 
-  window.addEventListener('load',function reloadPage(){
-    navigate('/');
-  })
-
   useEffect(()=>{
+    window.addEventListener('load',function reloadPage(){
+      navigate('/');
+    })
     async function getUpComingMovie(){
       const url = "https://api.themoviedb.org/3/movie/upcoming?api_key=45c19e5ad1a4792ab884744bb269265b";
       const responsedata = await fetch(url).then(response => response.json());
@@ -35,12 +34,11 @@ function App() {
       const response = await fetch(url).then(res => res.json());
       setGenreList(response.genres);
   }
-  const getMovieRequest = async () => {
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=45c19e5ad1a4792ab884744bb269265b&language=en-US&query=${movieName}&page=1&include_adult=false`;
-    const responseJson = await fetch(url).then(response => response.json());
-    setMovies(responseJson);
-    
-}    
+    const getMovieRequest = async () => {
+      const url = `https://api.themoviedb.org/3/search/movie?api_key=45c19e5ad1a4792ab884744bb269265b&language=en-US&query=${movieName}&page=1&include_adult=false`;
+      const responseJson = await fetch(url).then(response => response.json());
+      setMovies(responseJson);
+  }    
     getUpComingMovie();
     getTopRatedMovie();
     getGenreList();
