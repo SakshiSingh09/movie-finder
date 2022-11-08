@@ -144,22 +144,6 @@ box-icon[name='search']{
     position: relative;
 }
 
-.requestedMovieList{
-    display: flex;
-    align-items: center;
-    flex-wrap:nowrap;
-    overflow-x: scroll;
-}
-
-.requestedMovieList::-webkit-scrollbar {
-    display: none;
-  }
-  
-.requestedMovieList{
-    -ms-overflow-style: none; 
-    scrollbar-width: none;  
-  }
-
 .erroDivRequestedMoviePage{
     height: 600px; 
     position: relative;

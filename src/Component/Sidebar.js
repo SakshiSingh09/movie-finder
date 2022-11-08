@@ -17,7 +17,7 @@ export default function Sidebar(props){
                 {props.genreList.map(genre => {
                     return (
                         <li key={genre.id}>
-                        <Link to={`/${setGenreNameToLowerCase(genre.name)}`}>{genre.name}</Link>
+                        <Link to={`/${genre.id}/${setGenreNameToLowerCase(genre.name)}`}>{genre.name}</Link>
                         </li>                        
                     )
                 })}

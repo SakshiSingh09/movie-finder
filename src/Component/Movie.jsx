@@ -1,30 +1,44 @@
 import React, { useEffect, useState } from "react"
+import Error from "./Error";
+import { useParams  } from "react-router-dom"
 
-export default function Comedy(){
-    const [comedyMovies, setcomedyMovies] = useState([]);
-    async function getcomedyMovies(){
-        const url = "https://api.themoviedb.org/3/discover/movie?api_key=45c19e5ad1a4792ab884744bb269265b&with_genres=35";
-        const responsedata = await fetch(url).then(response => response.json());
-        setcomedyMovies(responsedata.results);
-      }
+export default function Movie(){
+    const params = useParams();
+    const [genreMovies, setGenreMovies] = useState([]);
+    const [error, setError] = useState(false)
     
     useEffect(()=>{
-        getcomedyMovies();
-        document.title = 'Comedy Movies';
-    },[])
+        async function getGenreMovies(){
+            try{
+                const url = `https://api.themoviedb.org/3/discover/movie?api_key=45c19e5ad1a4792ab884744bb269265b&with_genres=${params.id}`;
+                const responsedata = await fetch(url).then(response => response.json());
+                setGenreMovies(responsedata.results);
+            }catch(error){
+                setError(true);
+            }
+          }
+          
+        getGenreMovies();        
+        document.title = `${params.name} movies`;
+    },[params.id, params.name])
 
     function getReleaseYear(date){
         let day = date.split("-");
         let year = day[0];
         return year;
     }
-
-    if (comedyMovies.length !== 0){
+    
+    if(error){
+        return(
+            <Error />
+        )
+    }
+    if (genreMovies.length !== 0){
         return(
             <div>
-                <h1 className="right-heading">Comedy Movies</h1>           
+                <h1 className="right-heading">Documentary Movies</h1>           
                 <div className="movieList">
-                {comedyMovies.map(movie => {
+                {genreMovies.map(movie => {
                     return (
                         <div className="movieContent" key={movie.id}>
                         <div className="movieCard-top-section">

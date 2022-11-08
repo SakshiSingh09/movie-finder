@@ -3,7 +3,7 @@ import './App.css';
 import SearchForm from "./Component/SearchForm";
 import Sidebar from "./Component/Sidebar";
 import Genre from "./Component/Genre";
-import Movies from "./Component/Movies";
+import SearchedMovies from "./Component/SearchedMovies";
 import { useNavigate } from "react-router-dom";
 
 function App() {
@@ -56,8 +56,9 @@ function App() {
       <div className="main">
         <Sidebar genreList={genreList}/>
         <div className="right">
-          {isShowingMovie && <Movies movies={movies} setIsShowingMovie={setIsShowingMovie}/>}
-          <Genre upComingMovieList={upcomingMovie} topRatedMovieList={topRatedMovie}/>
+          {isShowingMovie ? <SearchedMovies movies={movies} setIsShowingMovie={setIsShowingMovie}/>:
+            <Genre upComingMovieList={upcomingMovie} topRatedMovieList={topRatedMovie}/>
+          }
         </div>
       </div>
     </div>
